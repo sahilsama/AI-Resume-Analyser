@@ -1,13 +1,36 @@
+import { resumes } from "~/constant";
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-
+import Navbar from "~/components/Navbar";
+import Resumecard from "~/components/Resumecard";
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "AI Resume Analyser" },
+    {
+      name: "description",
+      content:
+        "This project focuses on building an AI-powered Applicant Tracking System (ATS), specifically a Resume Analyzer. The application allows users to upload their resumes and job descriptions, then uses AI to automatically evaluate and match resumes to job requirements!",
+    },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+      <Navbar />
+      <section className="main-section">
+        <div className="page-heading ">
+          <h1>Track Your Application And Resume Ratings</h1>
+          <h2>Review you Resume with AI Powered Feedbacks</h2>
+        </div>
+      </section>
+
+      {resumes.length > 0 && (
+        <div className="resumes-section">
+          {resumes.map((resume) => (
+            <Resumecard key={resume.id} resume={resume} />
+          ))}
+        </div>
+      )}
+    </main>
+  );
 }
