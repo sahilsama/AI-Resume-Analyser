@@ -1,4 +1,7 @@
-# Welcome to AI Resume Analyser!
+<img width="1888" height="844" alt="image" src="https://github.com/user-attachments/assets/e6a74fe5-003b-482d-9bf4-b613624da7eb" />
+
+## Welcome to AI ATS!
+
 
 A modern, production-ready template for building full-stack React applications using React Router.
 
