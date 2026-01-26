@@ -1,6 +1,6 @@
-# AI Resume Analyser
+<img width="1888" height="844" alt="image" src="https://github.com/user-attachments/assets/e6a74fe5-003b-482d-9bf4-b613624da7eb" />
 
-![AI Resume Analyser](https://github.com/user-attachments/assets/003b-482d-9bf4-b613624da7eb)
+## Welcome to AI ATS!
 
 An intelligent web application that analyzes resumes using AI to provide detailed feedback, scoring, and insights to help job seekers improve their resumes and increase their chances of landing interviews.
 
@@ -110,20 +110,10 @@ Deploy the contents of the `build/` directory to your hosting platform.
 └── Dockerfile          # Docker configuration
 ```
 
-## Contributing
+## Styling
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature`
-5. Open a pull request
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
 
-## License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Built with ❤️ using React Router
-- AI analysis powered by advanced language models
-- PDF processing by PDF.js
+Built with ❤️ using React Router.
