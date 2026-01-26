@@ -6,13 +6,21 @@ const upload = () => {
   
   const [isProcessing, setProcessing] = useState(false);
   const [statusText, setStatusText] = useState("");
-  const [file, setFile] = useState<File | null>();
+  const [file, setFile] = useState<File | null>(null);
   const handleFileSelect =(file: File | null) =>{
     setFile(file)
   }
   const handleSubmit = (e: FormEvent<HTMLFormElement>)=>{
-
-
+    e.preventDefault();
+    if (!file) {
+      console.warn("No file selected.");
+      return;
+    }
+    console.log("Submitting resume file:", {
+      name: file.name,
+      type: file.type,
+      size: file.size,
+    });
   }
 
   return (
@@ -33,7 +41,7 @@ const upload = () => {
               <img src="/images/resume-scan.gif" alt="" className="w-full" />
             </>
           ) : (
-            <div className="text-white text-1xl">  
+            <div className="text-white text-1xl ">  
               <div className="flex justify-center items-center gap-4">
                 <img src="/images/Sitonchair.png" alt="Siton Chair" className="w-1/3" />
                 <div className="text-2xl font-roboto-slab">Drop your Information for ATS Score and Improvement Tips</div>
@@ -42,21 +50,22 @@ const upload = () => {
           )}
           {!isProcessing && (
             <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
-              <div className="form-div">
+              
+              <div className="form-div text-black">
                 <label htmlFor="company-name" className="bg-amber-300 text-3xl">[Company Name]</label>
                 <input type="text" name="company-name" placeholder="Company Name" id="company-name"/>
               </div>
 
-              <div className="form-div">
+              <div className="form-div text-black">
                 <label htmlFor="job-title" className="text-3xl bg-amber-300">[Job Title]</label>
                 <input type="text" name="job-title" placeholder="job-title" id="job-title" />
 
               </div>
-              <div className="form-div">
+              <div className="form-div text-black">
                 <label htmlFor="job-description" className="bg-amber-300 text-3xl">[Job Description]</label>
                 <textarea rows={5} name="job-description" placeholder="job-description" id="job-description"/>
               </div>
-              <div className="form-div">
+              <div className="form-div ">
                 <label htmlFor="uploader" className="bg-amber-300 text-3xl">[Upload Resume]</label>
                   <Fileuploader onFileSelect={handleFileSelect}/>
               </div>

@@ -18,8 +18,13 @@ const Fileuploader = ({onFileSelect} : FileUploadedProps) => {
   const {getRootProps, getInputProps, isDragActive, acceptedFiles} = useDropzone({
     onDrop,
     multiple: false,
-    accept:{'application/pdf' : [':pdf']},
+    accept: { "application/pdf": [".pdf"] },
     maxSize: maxFileSize,
+    onDropRejected: (fileRejections) => {
+      // Useful when debugging why a file is rejected
+      console.warn("File rejected:", fileRejections);
+      onFileSelect?.(null);
+    },
   })
   
   const file = acceptedFiles[0] || null;
